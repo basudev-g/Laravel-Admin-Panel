@@ -26,15 +26,26 @@
             <li class="nav-item dropdown">
                 <div class="nav-dropdown">
                     <a href="#" id="nav2" class="nav-item nav-link dropdown-toggle text-secondary" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user"></i> <span>John Doe</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
+                        <i class="fas fa-user"></i> <span>{{ Auth::user()->name }}</span> <i style="font-size: .8em;" class="fas fa-caret-down"></i>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end nav-link-menu">
                         <ul class="nav-list">
-                            <li><a href="" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
+                            <li><a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
                             <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
                             <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
                             <div class="dropdown-divider"></div>
-                            <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            <!-- <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li> -->
+                            <!-- Authentication -->
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <a href="route('logout')" onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Log Out') }}
+                                    </a>
+                                </form>
+                            </li>
                         </ul>
                     </div>
                 </div>

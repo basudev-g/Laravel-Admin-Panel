@@ -28,6 +28,7 @@
     <script src="assets/vendor/chartsjs/Chart.min.js"></script>
     <script src="assets/js/dashboard-charts.js"></script>
     <script src="assets/js/script.js"></script>
+    @yield('scripts')
 </body>
 
 </html>

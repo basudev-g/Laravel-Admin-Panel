@@ -4,7 +4,7 @@
     </div>
     <ul class="list-unstyled components text-secondary">
         <li>
-            <a href="/"><i class="fas fa-home"></i> Dashboard</a>
+            <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
         </li>
         <li>
             <a href="forms.html"><i class="fas fa-file-alt"></i> Forms</a>
@@ -70,7 +70,7 @@
             </ul>
         </li>
         <li>
-            <a href="users.html"><i class="fas fa-user-friends"></i>Users</a>
+            <a href="{{ route('admin-users') }}"><i class="fas fa-user-friends"></i>Users</a>
         </li>
         <li>
             <a href="{{ route('admin-settings') }}"><i class="fas fa-cog"></i>Settings</a>
