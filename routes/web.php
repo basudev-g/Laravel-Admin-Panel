@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,18 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/dashboard', function () {
-    return view('admin.index');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/settings', function () {
-    return view('admin.settings');
-})->middleware(['auth'])->name('admin-settings');
-
-Route::get('/users', function () {
-    return view('admin.users');
-})->middleware(['auth'])->name('admin-users');
+Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
+Route::get('/settings', [AdminController::class, 'settings'])->name('admin-settings');
+Route::get('/users', [AdminController::class, 'users'])->name('admin-users');
+Route::get('/roles', [AdminController::class, 'roles'])->name('admin-roles');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

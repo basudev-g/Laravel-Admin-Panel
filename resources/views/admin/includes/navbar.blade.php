@@ -18,7 +18,9 @@
                             <div class="dropdown-divider"></div>
                             <li><a href="" class="dropdown-item"><i class="fas fa-cloud-download-alt"></i> Updates</a></li>
                             <div class="dropdown-divider"></div>
-                            <li><a href="" class="dropdown-item"><i class="fas fa-user-shield"></i> Roles</a></li>
+                            @if(Auth::user()->hasRole("super_admin"))
+                            <li><a href="{{ route('admin-roles') }}" class="dropdown-item"><i class="fas fa-user-shield"></i> Roles</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
@@ -32,7 +34,9 @@
                         <ul class="nav-list">
                             <li><a href="{{route('profile.edit')}}" class="dropdown-item"><i class="fas fa-address-card"></i> Profile</a></li>
                             <li><a href="" class="dropdown-item"><i class="fas fa-envelope"></i> Messages</a></li>
-                            <li><a href="" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                            @if(Auth::user()->hasRole('super_admin'))
+                            <li><a href="{{ route('admin-settings') }}" class="dropdown-item"><i class="fas fa-cog"></i> Settings</a></li>
+                            @endif
                             <div class="dropdown-divider"></div>
                             <!-- <li><a href="" class="dropdown-item"><i class="fas fa-sign-out-alt"></i> Logout</a></li> -->
                             <!-- Authentication -->
