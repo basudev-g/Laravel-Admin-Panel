@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class AdminController extends Controller
 {
@@ -10,11 +11,14 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('verified');
-        $this->middleware('role:super_admin', ['only' => ['users', 'settings', 'roles']]);
+        $this->middleware('role:admin', ['only' => ['users', 'settings', 'roles']]);
     }
 
     public function index()
     {
+        // Role::create(['name' => 'user']);
+        // $role = Role::findById(2);
+        // auth()->user()->assignRole($role);
         return view('admin.index');
     }
 

@@ -69,13 +69,13 @@
                 </li>
             </ul>
         </li>
-        @if(Auth::user()->hasRole('super_admin'))
+        @role('admin')
         <li>
             <a href="{{ route('admin-users') }}"><i class="fas fa-user-friends"></i>Users</a>
         </li>
         <li>
             <a href="{{ route('admin-settings') }}"><i class="fas fa-cog"></i>Settings</a>
         </li>
-        @endif
+        @endrole
     </ul>
 </nav>
