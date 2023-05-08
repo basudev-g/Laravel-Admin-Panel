@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,6 +23,10 @@ Route::get('/dashboard', [AdminController::class, 'index'])->name('dashboard');
 Route::get('/settings', [AdminController::class, 'settings'])->name('admin-settings');
 Route::get('/users', [AdminController::class, 'users'])->name('admin-users');
 Route::get('/roles', [AdminController::class, 'roles'])->name('admin-roles');
+Route::get('/permissions', [AdminController::class, 'permissions'])->name('admin-permissions');
+
+Route::post('/roles', [RoleController::class, 'store'])->name('role.store');
+Route::delete('/roles/{role}', [RoleController::class, 'destroy'])->name('role.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

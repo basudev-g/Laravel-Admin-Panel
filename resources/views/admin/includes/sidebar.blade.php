@@ -6,7 +6,7 @@
         <li>
             <a href="{{ route('dashboard') }}"><i class="fas fa-home"></i> Dashboard</a>
         </li>
-        <li>
+        <!-- <li>
             <a href="forms.html"><i class="fas fa-file-alt"></i> Forms</a>
         </li>
         <li>
@@ -68,7 +68,7 @@
                     <a href="500.html"><i class="fas fa-info-circle"></i> 500 Error page</a>
                 </li>
             </ul>
-        </li>
+        </li> -->
         @role('admin')
         <li>
             <a href="{{ route('admin-users') }}"><i class="fas fa-user-friends"></i>Users</a>
